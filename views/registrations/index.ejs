@@ -1,7 +1,16 @@
 <h1>I am the sign up page</h1>
 
-
-<form method="POST" action="/register">
+<div class="row">
+  <% if(messages.danger){ %>
+    <div class="col s12 l12">
+      <div class="card blue lighten-4">
+        <div class="card-content blue-text">
+          <span class="card-title"><%= messages.danger %></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
+<form method="POST" action="/signup">
   <div>
     <label for="username">Username</label>
     <input type="text" name="username" id="username">
@@ -18,5 +27,5 @@
     <label for="passwordConfirmation">Password Confirmation</label>
     <input type="password" name="passwordConfirmation" id="passwordConfirmation">
   </div>
-  <button class="button">Register</button>
+  <button class="button">Sign Up</button>
 </form>

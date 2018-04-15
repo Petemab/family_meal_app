@@ -9,7 +9,7 @@ function createRoute(req, res, next) {
     .findOne({ email: req.body.email })
     .then(user => {
       if(!user || !user.validatePassword(req.body.password)) {
-        return res.redirect('/login'); // Need to add error message
+        res.status(401).render('sessions/index', {message: 'Wrong credentials'});
       }
       req.session.userId = user._id;
       res.redirect('/'); // otherwise send them to the homepage?

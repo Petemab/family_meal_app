@@ -1,4 +1,15 @@
 <h1>This is the Log In Page</h1>
+<div class="row">
+  <% if(messages.danger){ %>
+    <div class="col s12 l12">
+      <div class="card blue lighten-4">
+        <div class="card-content blue-text">
+          <span class="card-title"><%= messages.danger %></span>
+        </div>
+      </div>
+    </div>
+  <% } %>
+
 <form  action="/login" method="POST">
   <div>
     <label for="email">Email</label>

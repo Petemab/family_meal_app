@@ -7,8 +7,16 @@ function newRoute(req, res) {
 function createRoute(req, res, next){
   User
     .create(req.body)
-    .then((user) => res.redirect('/'))
-    .catch(next);
+    .then((user) =>{
+      res.redirect('/');
+    })
+    .catch((err)=>{
+      if(err.name === 'ValidationError'){
+        return res.status(400).render('registrations/index', {message: err.toString()});
+      }
+    });
+
+
 }
 
 module.exports = {

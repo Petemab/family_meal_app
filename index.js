@@ -5,11 +5,14 @@ const morgan         = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
 const mongoose       = require('mongoose');
 const session        = require('express-session');
+const flash = require('express-flash');
+const User = require('./models/user');
 
 
 
 const {port, databaseURI} = require('./config/environment');
 const routes = require('./config/routes');
+const customResponses = require('./lib/customResponses');
 
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
@@ -22,6 +25,11 @@ app.use(session({
   resave: false,
   saveUninitialized: false
 }));
+
+app.use(flash());
+app.use(customResponses);
+
+
 
 app.use((req, res, next) => {
   if(!req.session.userId) return next();
@@ -44,6 +52,17 @@ app.use(expressLayouts);
 
 
 app.use(routes);
+
+
+app.use((err, req, res, next) =>{
+
+  err.status = err.status || 500;
+  err.message = err.message || 'Internal Server Error';
+  res.status(err.status);
+  res.locals.err = err;
+
+  return res.render(`statics/${err.status}`);
+});
 
 
 
