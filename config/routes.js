@@ -1,5 +1,7 @@
 const router = require('express').Router();
 const registrations = require('../controllers/registrations');
+const sessions = require('../controllers/sessions')
+
 
 
 // route to home, about and contact
@@ -28,14 +30,14 @@ router.route('/signup')
   .get(registrations.new)
   .post(registrations.create);
 
-// router.route("/signin")
-//   .get(sessions.new)
-//   .post(sessions.create)
-//
-// router.route("/logout")
-//   .get(sessions.delete)
+router.route('/login')
+  .get(sessions.new)
+  .post(sessions.create)
 
-//end authentication
+router.route('/logout')
+  .get(sessions.delete)
+
+// end authentication
 
 
 

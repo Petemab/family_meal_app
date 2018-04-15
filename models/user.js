@@ -9,7 +9,9 @@ const userSchema = new mongoose.Schema({
   password: { type: String, required: true, unique: true }
 });
 
-
+userSchema.methods.validatePassword = function validatePassword(password){
+  return bcrypt.compareSync(password, this.password);
+};
 
 userSchema
   .virtual('passwordConfirmation')
