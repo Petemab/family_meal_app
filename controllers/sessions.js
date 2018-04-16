@@ -19,18 +19,25 @@ function createRoute(req, res, next) {
 }
 
 // Hopefully this will allow me to render a users index page
-// function indexRoute(req, res) {
-//   return User
-//     .find()
-//     .exec()
-//     .then(users => res.render('users/index', { users })) // pass the users into the index template
-//     .catch(err => {
-//       console.log(err); // log the error
-//       return res.sendStatus(500); // send a 500 response
-//     });
-// }
+function userIndex(req, res) {
+  return User
+    .find()
+    .exec()
+    .then(users => res.render('users/index', { users })) // pass the users into the index template
+    .catch(err => {
+      console.log(err); // log the error
+      return res.sendStatus(500); // send a 500 response
+    });
+}
 
 
+function userShow(req, res){
+  User
+    .findById(req.params.id)
+    //populate
+    .exec()
+    .then(users => res.render('users/show', {users}));
+}
 
 function deleteRoute(req, res){
   return req.session.regenerate(() => res.redirect('/'));
@@ -40,6 +47,7 @@ function deleteRoute(req, res){
 module.exports = {
   new: newRoute,
   create: createRoute,
-  // index: indexRoute,
+  show: userShow,
+  index: userIndex,
   delete: deleteRoute
 };

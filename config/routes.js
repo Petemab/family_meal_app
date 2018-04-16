@@ -2,6 +2,7 @@ const router = require('express').Router();
 const registrations = require('../controllers/registrations');
 const sessions = require('../controllers/sessions');
 const restaurants = require('../controllers/restaurants');
+const users = require('../controllers/sessions');
 
 
 
@@ -39,7 +40,7 @@ router.route('/restaurants/new')
 
 /////route to users?
 
-//authentication
+//authentication and users
 
 router.route('/signup')
   .get(registrations.new)
@@ -52,11 +53,14 @@ router.route('/login')
 router.route('/logout')
   .get(sessions.delete);
 
-router.route('users/:id')
-  .get(.show)
-  .delete(.delete)
-  .put(.update);
-  .get(.edit);
+router.route('/users')
+  .get(users.index);
+
+router.route('/users/:id')
+  .get(users.show);
+//   .delete(.delete)
+//   .put(.update);
+//   .get(.edit);
 
 
 // end authentication
