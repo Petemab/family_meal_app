@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const registrations = require('../controllers/registrations');
-const sessions = require('../controllers/sessions')
+const sessions = require('../controllers/sessions');
+const restaurants = require('../controllers/restaurants');
 
 
 
@@ -10,11 +11,23 @@ router.get('/about', (req, res) => res.render('about'));
 router.get('/contact', (req, res) => res.render('contact'));
 
 
+
+function secureRoute(req, res, next){
+  if(!req.session.userId){
+    return req.session.regenerate(() =>{
+      req.flash('danger', 'You must be logged in');
+      res.redirect('/');
+    });
+  }
+  return next();
+}
 /////////Route to /Restaurants
 
 
-///////Route to adding new restaurant
-
+///////Route to adding new and posting it restaurant
+router.route('/restaurants/new')
+  .get(restaurants.new);
+  // .post(restaurants.create);
 
 
 
@@ -32,10 +45,10 @@ router.route('/signup')
 
 router.route('/login')
   .get(sessions.new)
-  .post(sessions.create)
+  .post(sessions.create);
 
 router.route('/logout')
-  .get(sessions.delete)
+  .get(sessions.delete);
 
 // end authentication
 

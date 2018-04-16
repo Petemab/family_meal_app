@@ -3,22 +3,26 @@ const express        = require('express');
 const app            = express();
 const morgan         = require('morgan');
 const expressLayouts = require('express-ejs-layouts');
+const bodyParser     = require('body-parser');
 const mongoose       = require('mongoose');
 const session        = require('express-session');
 const flash = require('express-flash');
 const User = require('./models/user');
-
-
-
 const {port, databaseURI} = require('./config/environment');
 const routes = require('./config/routes');
 const customResponses = require('./lib/customResponses');
+
+
+mongoose.connect(databaseURI);
+
 
 app.set('view engine', 'ejs');
 app.set('views', `${__dirname}/views`);
 app.use(express.static(`${__dirname}/public`));
 
-// app.use(bodyParser.urlencoded({extended: true }));
+app.use(bodyParser.urlencoded({extended: true }));
+app.use(morgan('dev'));
+app.use(expressLayouts);
 
 app.use(session({
   secret: 'wordsandsecretstuff', //what goes here? Why?
@@ -44,8 +48,21 @@ app.use((req, res, next) => {
     });
 });
 
-app.use(morgan('dev'));
-app.use(expressLayouts);
+// app.use((req, res, next) =>{
+//   if(!req.session.userId) return next();
+//
+//   User
+//     .findById(req.session.userId)
+//     .then((user) =>{
+//       req.session.userId = user._id;
+//       res.locals.user = user;
+//       req.currentUser = user;
+//       res.locals.isLoggedIn = true;
+//       next();
+//     });
+//
+//
+// });
 
 
 
@@ -55,6 +72,7 @@ app.use(routes);
 
 
 app.use((err, req, res, next) =>{
+
 
   err.status = err.status || 500;
   err.message = err.message || 'Internal Server Error';

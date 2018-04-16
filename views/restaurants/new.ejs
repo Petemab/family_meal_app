@@ -1,0 +1,84 @@
+<h1>This is the new restaurant page</h1>
+name: {type: String, required: true},
+imageURL: String,
+address: {type: String, required: true},
+postcode: String,
+phoneNumber: Number,
+website: String,
+cuisine: String,
+foodRating: {type: Number, min: 1, max: 10, default: 5},
+kidsMenu: Boolean,
+highChairs: Boolean,
+entertainment: String,
+familyFriendlyRating: {type: Number, min: 1, max: 10, default: 5},
+review: String
+
+
+
+
+<form method="POST" action="/restaurants/new">
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required>
+  </div>
+  <div>
+    <label for="imageURL">Image Link</label>
+    <input type="url" name="imageURL" id="image">
+  </div>
+  <div>
+    <label for="address">Address</label>
+    <input type="text" name="address" id="address">
+  </div>
+  <div>
+    <label for="postcode">Postcode</label>
+    <input type="text" name="postcode" id="postcode">
+  </div>
+  <div>
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" name="phoneNumber" id="phoneNumber">
+  </div>
+  <div>
+    <label for="website">Website</label>
+    <input type="text" name="website" id="website">
+  </div>
+  <div>
+    <label for="cuisine">Cuisine</label>
+    <input type="text" name="cuisine" id="cuisine">
+  </div>
+  <div>
+    <label for="foodRating">Food Rating (10 amazing - 1 awful)</label>
+    <input type="number" name="rating" id="foodRating" min=0 max=10>
+  </div>
+  <%# <div class="switch">
+    <label>
+      No
+      <input type="checkbox" name="kidsMenu" id="kidsMenu">
+      <span class="lever">Kids Menu?</span>
+      Yes
+    </label>
+  </div>
+  <div class="switch">
+    <label>
+      No
+      <input type="checkbox" name="highChairs" id="highChairs">
+      <span class="lever">Highchairs Availabe?</span>
+      Yes
+    </label>
+  </div> %>
+  <div>
+    <label for="entertainment">Entertainment (Crayons? Kid's books?)</label>
+    <input type="text" name="entertainment" id="entertainment">
+  </div>
+  <div>
+    <label for="familyFriendlyRating">Family Friendly Rating (10 amazing - 1 awful)</label>
+    <input type="number" name="familyFriendlyRating" id="familyFriendlyRating" min=0 max=10 required>
+  </div>
+  <div>
+    <label for="review">Write your review here</label>
+    <input type="text" name="review" id="review">
+  </div>
+<div>
+  <button class="button">Add Restaurant!</button>
+</div>
+
+</form>
