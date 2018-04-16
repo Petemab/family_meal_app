@@ -1,5 +1,5 @@
 <h1>This is the new restaurant page</h1>
-name: {type: String, required: true},
+<%# name: {type: String, required: true},
 imageURL: String,
 address: {type: String, required: true},
 postcode: String,
@@ -11,12 +11,12 @@ kidsMenu: Boolean,
 highChairs: Boolean,
 entertainment: String,
 familyFriendlyRating: {type: Number, min: 1, max: 10, default: 5},
-review: String
+review: String %>
 
 
 
 
-<form method="POST" action="/restaurants/new">
+<form method="POST" action="/restaurants">
   <div>
     <label for="name">Name</label>
     <input type="text" name="name" id="name" required>

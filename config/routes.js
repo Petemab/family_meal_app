@@ -22,12 +22,14 @@ function secureRoute(req, res, next){
   return next();
 }
 /////////Route to /Restaurants
-
+router.route('/restaurants')
+  .get(restaurants.index)
+  .post(restaurants.create);
 
 ///////Route to adding new and posting it restaurant
 router.route('/restaurants/new')
   .get(restaurants.new);
-  // .post(restaurants.create);
+// .post(restaurants.create);
 
 
 
@@ -49,6 +51,13 @@ router.route('/login')
 
 router.route('/logout')
   .get(sessions.delete);
+
+router.route('users/:id')
+  .get(.show)
+  .delete(.delete)
+  .put(.update);
+  .get(.edit);
+
 
 // end authentication
 

@@ -1,0 +1,59 @@
+
+
+
+    <h2>Edit Profile <%= user.name %></h2>
+
+    <form class="col l12" action="/user/<%= user._id %>" method="put">
+      <input type="hidden" name="method" value="PUT">
+      <div class="input-field col l12">
+        <input type="text" name="username" id="username" value="<%= user.name %>">
+        <label for="username">Edit Username</label>
+      </div>
+      <div>
+        <input type="email" name="email" id="email" value="<%= ">
+        <label for="email">Email</label>
+
+      </div>
+      <div>
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" value"<%= user.password %>">
+      </div>
+      <div>
+        <label for="passwordConfirmation">Password Confirmation</label>
+        <input type="password" name="passwordConfirmation" id="passwordConfirmation">
+      </div>
+      <div>
+      <input type="hidden" name="_method" value="DELETE">
+      <button class="btn red">Delete Profile</button>
+      </div>
+
+    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <form action="/users/<%= user.id %>" method="post">
+
+
+    </form>
+
+  </div>
+</div>

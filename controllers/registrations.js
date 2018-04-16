@@ -1,11 +1,6 @@
 
 
 
-// --------------The controller talks between the router and the view------------
-// -------------The name of the file for a controller is always plural-----------
-
-// -----------------------------For the sign up----------------------------------
-
 const User = require('../models/user');
 // const flash = require('express-flash');
 
