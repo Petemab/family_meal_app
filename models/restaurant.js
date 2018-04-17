@@ -1,6 +1,16 @@
 const mongoose = require('mongoose');
 
 
+//review model
+// const reviewSchema = new mongoose.Schema({
+//   headline:
+//
+// })
+
+
+
+
+//restaurant model
 const restaurantSchema = new mongoose.Schema({
   name: {type: String, required: true},
   imageURL: String,
@@ -9,11 +19,11 @@ const restaurantSchema = new mongoose.Schema({
   phoneNumber: String,
   website: String,
   cuisine: String,
-  foodRating: {type: Number, min: 1, max: 10, default: 5},
+  foodRating: {type: String},
   // kidsMenu: Boolean,
   // highChairs: Boolean,
   entertainment: String,
-  familyFriendlyRating: {type: Number, min: 1, max: 10, default: 5},
+  familyFriendlyRating: {type: String, required: true },
   review: String,
   user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
