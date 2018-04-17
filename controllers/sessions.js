@@ -36,8 +36,18 @@ function userShow(req, res){
     .findById(req.params.id)
     //populate
     .exec()
-    .then(users => res.render('users/show', {users}));
+    .then(user => res.render('users/show', {user}));
 }
+
+// can I not add 2 deletes?
+function userDelete(req, res){
+  User
+    .findById(req.params.id)
+    .exec()
+    .then(user => user.remove())
+    .then(() => res.redirect('/users'));
+}
+
 
 function deleteRoute(req, res){
   return req.session.regenerate(() => res.redirect('/'));
@@ -49,5 +59,7 @@ module.exports = {
   create: createRoute,
   show: userShow,
   index: userIndex,
-  delete: deleteRoute
+  delete: deleteRoute,
+  deleteUser: userDelete
+
 };

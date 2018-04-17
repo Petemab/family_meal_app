@@ -6,6 +6,7 @@ const expressLayouts = require('express-ejs-layouts');
 const bodyParser     = require('body-parser');
 const mongoose       = require('mongoose');
 const session        = require('express-session');
+const methodOverride = require('method-override');
 const flash = require('express-flash');
 const User = require('./models/user');
 const {port, databaseURI} = require('./config/environment');
@@ -48,21 +49,15 @@ app.use((req, res, next) => {
     });
 });
 
-// app.use((req, res, next) =>{
-//   if(!req.session.userId) return next();
-//
-//   User
-//     .findById(req.session.userId)
-//     .then((user) =>{
-//       req.session.userId = user._id;
-//       res.locals.user = user;
-//       req.currentUser = user;
-//       res.locals.isLoggedIn = true;
-//       next();
-//     });
-//
-//
-// });
+
+app.use(methodOverride(function (req, res) {
+  if (req.body && typeof req.body === 'object' && '_method' in req.body) {
+    // look in urlencoded POST bodies and delete it
+    const method = req.body._method;
+    delete req.body._method;
+    return method;
+  }
+}));
 
 
 
@@ -72,7 +67,6 @@ app.use(routes);
 
 
 app.use((err, req, res, next) =>{
-
 
   err.status = err.status || 500;
   err.message = err.message || 'Internal Server Error';

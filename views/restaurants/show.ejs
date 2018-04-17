@@ -1,0 +1,24 @@
+
+
+<div class="row">
+  <h2><%= restaurant.name %></h2>
+    <img src="<%= restaurant.imageURL %>" alt="pic">
+    <p><%= restaurant.address %></p>
+    <p><%= restaurant.postcode %></p>
+    <br>
+    <p><%= restaurant.phoneNumber %></p>
+    <br>
+    <p></p>
+    <br>
+    <p><%= restaurant.review %></p>
+
+
+    <% if (restaurant.user.id === (locals.currentUser && locals.currentUser.id)) { %>
+      <div class="edit">
+        <a href="/restaurants/<%= restaurant._id %>/edit">Edit</a>
+      </div>
+      <form action="/restaurants/<%= restaurant.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="btn red">Delete Restaurant</button>
+      </form>
+    <% } %>

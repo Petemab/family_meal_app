@@ -25,14 +25,20 @@ function secureRoute(req, res, next){
 /////////Route to /Restaurants
 router.route('/restaurants')
   .get(restaurants.index)
-  .post(restaurants.create);
+  .post(secureRoute,restaurants.create);
 
 ///////Route to adding new and posting it restaurant
 router.route('/restaurants/new')
-  .get(restaurants.new);
-// .post(restaurants.create);
+  .get(secureRoute, restaurants.new);
 
 
+router.route('/restaurants/:id')
+  .get(restaurants.show)
+  .put(secureRoute, restaurants.update)
+  .delete(secureRoute, restaurants.delete);
+
+router.route('/restaurants/:id/edit')
+  .get(secureRoute, restaurants.edit);
 
 //////route to  restaurant reveiw/user reviews? (by ID?)
 
@@ -57,8 +63,8 @@ router.route('/users')
   .get(users.index);
 
 router.route('/users/:id')
-  .get(users.show);
-//   .delete(.delete)
+  .get(users.show)
+  .delete(users.deleteUser);
 //   .put(.update);
 //   .get(.edit);
 

@@ -14,7 +14,8 @@ const restaurantSchema = new mongoose.Schema({
   // highChairs: Boolean,
   entertainment: String,
   familyFriendlyRating: {type: Number, min: 1, max: 10, default: 5},
-  review: String
+  review: String,
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
 });
 
 

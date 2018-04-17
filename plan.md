@@ -53,14 +53,6 @@ on sign up users can leave reviews OR if they are a restaurant can submit their 
 
 
 
-function albumsEdit(req, res){
-  Album
-    .findById(req.params.id)
-    .populate('photos')
-    .exec()
-    .then(album => res.render('albums/edit', {album}));
-
-}
 
 function albumsUpdate(req, res){
   Album

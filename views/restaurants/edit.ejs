@@ -1,0 +1,70 @@
+
+<h1>This is the edit restaurant page</h1>
+
+<form method="put" action="/restaurants/<%= restaurant._id %>">
+  <input type="hidden" name="_method" value="PUT" />
+  <div>
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required value="<%= restaurant.name %>">
+  </div>
+  <div>
+    <label for="imageURL">Image Link</label>
+    <input type="url" name="imageURL" id="image" value="<%= restaurant.imageURL %>">
+  </div>
+  <div>
+    <label for="address">Address</label>
+    <input type="text" name="address" id="address" value="<%= restaurant.address %>">
+  </div>
+  <div>
+    <label for="postcode">Postcode</label>
+    <input type="text" name="postcode" id="postcode" value="<%= restaurant.postcode %>">
+  </div>
+  <div>
+    <label for="phoneNumber">Phone Number</label>
+    <input type="text" name="phoneNumber" id="phoneNumber" value="<%= restaurant.phoneNumber %>">
+  </div>
+  <div>
+    <label for="website">Website</label>
+    <input type="text" name="website" id="website" value="<%= restaurant.website %>">
+  </div>
+  <div>
+    <label for="cuisine">Cuisine</label>
+    <input type="text" name="cuisine" id="cuisine" value="<%= restaurant.cuisine %>">
+  </div>
+  <div>
+    <label for="foodRating">Food Rating (10 amazing - 1 awful)</label>
+    <input type="number" name="rating" id="foodRating" min=0 max=10 value="<%= restaurant.rating %>">
+  </div>
+  <%# <div class="switch">
+    <label>
+      No
+      <input type="checkbox" name="kidsMenu" id="kidsMenu">
+      <span class="lever">Kids Menu?</span>
+      Yes
+    </label>
+  </div>
+  <div class="switch">
+    <label>
+      No
+      <input type="checkbox" name="highChairs" id="highChairs">
+      <span class="lever">Highchairs Availabe?</span>
+      Yes
+    </label>
+  </div> %>
+  <div>
+    <label for="entertainment">Entertainment (Crayons? Kid's books?)</label>
+    <input type="text" name="entertainment" id="entertainment" value="<%= restaurant.entertainment %>">
+  </div>
+  <div>
+    <label for="familyFriendlyRating">Family Friendly Rating (10 amazing - 1 awful)</label>
+    <input type="number" name="familyFriendlyRating" id="familyFriendlyRating" min=0 max=10 required value="<%= restaurant.familyFriendlyRating %>">
+  </div>
+  <div>
+    <label for="review">Write your review here</label>
+    <input type="text" name="review" id="review" value="<%= restaurant.review %>">
+  </div>
+<div>
+  <button class="button">Update Restaurant!</button>
+</div>
+
+</form>
