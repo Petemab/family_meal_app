@@ -16,6 +16,24 @@
     <p>Restaurant added by: <%= restaurant.user.username %></p>
     <% } %>
 
+    <h4>Post a comment</h4>
+    <form action="/restaurants/<%= restaurant.id %>/comments" method="post">
+      <input type="text" name="content">
+      <input type="submit">
+    </form>
+
+    <h4>Listing Comments</h4>
+    <% restaurant.comments.forEach(comment => { %>
+      <div>
+        <p><strong><%= comment.user.username %></strong><%= comment.conent %></p>
+        <form action="/restaurants/<%= restaurant.id %>/comments/<%= comment.id %>">
+          <input type="hidden" name="_method" value="delete">
+          <button type="submit">Delete Comment</button>
+        </form>
+      </div>
+    <% }); %>
+
+
 
     <% if (restaurant.user.id === (locals.currentUser && locals.currentUser.id)) { %>
       <div class="edit">

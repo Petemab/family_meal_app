@@ -40,6 +40,12 @@ router.route('/restaurants/:id')
 router.route('/restaurants/:id/edit')
   .get(secureRoute, restaurants.edit);
 
+router.route('/restaurants/:id/comments')
+  .post(restaurants.commentsCreate);
+
+router.route('/restaurants/:restaurantId/comments/:commentId')
+  .delete(restaurants.commentsDelete);  
+
 //////route to  restaurant reveiw/user reviews? (by ID?)
 
 
