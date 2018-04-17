@@ -12,7 +12,9 @@
     <p>Entertainment: <%= restaurant.entertainment %></p>
     <p>Family Friendly Rating: <% restaurant.familyFriendlyRating %></p>
     <p>Review: <%= restaurant.review %></p>
+    <% if(restaurant.user) { %>
     <p>Restaurant added by: <%= restaurant.user.username %></p>
+    <% } %>
 
 
     <% if (restaurant.user.id === (locals.currentUser && locals.currentUser.id)) { %>

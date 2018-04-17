@@ -1,13 +1,10 @@
 const mongoose = require('mongoose');
 
 
-//review model
-// const reviewSchema = new mongoose.Schema({
-//   headline: String,
-//   familyFriendlyRating: {type: String, required: true},
-//   review: String
-//
-// });
+const commentSchema = new mongoose.Schema({
+  content: { type: String },
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
+});
 
 
 
@@ -25,7 +22,8 @@ const restaurantSchema = new mongoose.Schema({
   entertainment: String,
   familyFriendlyRating: {type: Number, min: 1, max: 10, default: 5},
   review: String,
-  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'},
+  comments: [commentSchema]
 });
 
 
