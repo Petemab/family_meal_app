@@ -24,8 +24,6 @@ function restaurantNew(req, res){
 
 function restaurantCreate(req, res){
   req.body.user = req.currentUser;
-  req.body.rating = parseInt(req.body.rating);
-  req.body.familyFriendlyRating = parseInt(req.body.familyFriendlyRating);
 
   Restaurant
     .create(req.body)
