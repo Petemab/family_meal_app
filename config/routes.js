@@ -16,7 +16,7 @@ router.get('/contact', (req, res) => res.render('contact'));
 function secureRoute(req, res, next){
   if(!req.session.userId){
     return req.session.regenerate(() =>{
-      req.flash('danger', 'You must be logged in');
+      req.flash('danger', 'You must be logged in to add a restaurant or leave a review');
       res.redirect('/');
     });
   }
