@@ -22,7 +22,7 @@ function createRoute(req, res){
     .catch((err) => {
       console.log('inside the error');
       if(err.name === 'ValidationError'){ //This is just what mongodb calls a validation error - if the stuff the user input does not match the criteria set out in the model.
-        req.flash('danger', 'You must be logged in');
+        req.flash('danger', 'Passwords much match');
         return res.status(400).render('registrations/index');
       }
     });

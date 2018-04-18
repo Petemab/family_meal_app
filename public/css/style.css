@@ -9,11 +9,40 @@ body {
 main {
   flex: 1 0 auto; }
 
+.card .card-image img {
+  display: block;
+  border-radius: 2px 2px 0 0;
+  position: relative;
+  left: 0;
+  right: 0;
+  top: 0;
+  border-radius: 3px;
+  bottom: 0;
+  width: 100%; }
+
+.show {
+  margin-top: 2%; }
+
+.card-title {
+  font-size: 30px; }
+
+.card {
+  border-radius: 3px; }
+
 .brand-logo {
   margin-left: 2%;
   height: 50px; }
 
 .footer-link {
   padding-right: 3px; }
+
+.landing {
+  height: calc(100vh - 240px); }
+
+.welcome-page {
+  padding-left: 150px; }
+
+.welcome-motto {
+  padding-left: 40px; }
 
 /*# sourceMappingURL=style.css.map */
