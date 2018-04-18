@@ -22,8 +22,12 @@
 </nav>
 
 <ul class="sidenav" id="mobile-demo">
+  <% if(locals.isAuthenticated){ %>
+    <li><a href="/logout">Logout (Signed in as <%= locals.currentUser.username %>)</a></li>
+    <% } else { %>
   <li><a href="/signup">Sign Up</a></li>
   <li><a href="/login">Log In</a></li>
+    <% } %>
   <li><a href="/restaurants">Restaurants</a></li>
   <li><a href="/restaurants/new">Add a Restaurant</a></li>
 
