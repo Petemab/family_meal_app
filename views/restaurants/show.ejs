@@ -16,6 +16,7 @@
     <p>Restaurant added by: <%= restaurant.user.username %></p>
     <% } %>
 
+<% if(locals.isAuthenticated) { %>
 
     <h4>Post a comment</h4>
     <form action="/restaurants/<%= restaurant.id %>/comments" method="post">
@@ -23,6 +24,7 @@
       <input type="submit">
     </form>
 
+    <% } %>
     <h4>Listing Comments</h4>
 
     <% restaurant.comments.forEach(comment => { %>
@@ -30,11 +32,13 @@
       <% if(comment.user) { %>
         <p><strong><%= comment.user.username %></strong> - <%= comment.content %></p>
 
+<% if(locals.isAuthenticated && comment.user && comment.user.id === locals.currentUser.id) { %>
+
         <form method="post" action="/restaurants/<%= restaurant.id %>/comments/<%= comment.id %>">
           <input type="hidden" name="_method" value="delete">
           <button type="submit">Delete Comment</button>
         </form>
-
+  <% } %>
       </div>
       <% } %>
     <% }) %>

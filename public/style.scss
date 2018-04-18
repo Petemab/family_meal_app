@@ -1,0 +1,29 @@
+* {
+  font-family: 'Advent Pro', sans-serif;
+
+}
+
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
+}
+
+//
+// html {
+//   color: #ffe082;
+// }
+
+.brand-logo {
+  margin-left: 2%;
+  height: 50px;
+}
+
+.footer-link {
+  padding-right: 3px;
+}

@@ -1,6 +1,7 @@
-<nav class="nav-extended blue-grey">
+<nav class="nav-extended teal accent-3">
   <div class="nav-wrapper">
-    <a href="/" class="brand-logo">Family Eats</a>
+    <a href="/" class="brand-logo"><i class="fas fa-child"></i><i class="fas fa-utensils"></i>Family Eats</a>
+    <%# <h6 class="motto">- find you family friendly meal!</h6> %>
     <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <% if(locals.isAuthenticated){ %>
@@ -16,9 +17,6 @@
     <ul class="tabs tabs-transparent">
       <li class="tab"><a href="/restaurants">Restaurants</a></li>
       <li class="tab"><a href="/restaurants/new">Add a Restaurant</a></li>
-      <li class="tab"><a href="/users">Our Reviewers</a></li>
-      <li class="tab"><a href="/about">About</a></li>
-      <li class="tab"><a href="/contact">Contact</a></li>
     </ul>
   </div>
 </nav>
@@ -26,5 +24,7 @@
 <ul class="sidenav" id="mobile-demo">
   <li><a href="/signup">Sign Up</a></li>
   <li><a href="/login">Log In</a></li>
-  <li><a href="/">Home</a></li>
+  <li><a href="/restaurants">Restaurants</a></li>
+  <li><a href="/restaurants/new">Add a Restaurant</a></li>
+
 </ul>
