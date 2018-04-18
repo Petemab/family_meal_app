@@ -24,14 +24,19 @@
     </form>
 
     <h4>Listing Comments</h4>
+
     <% restaurant.comments.forEach(comment => { %>
       <div>
-        <p><strong><%= comment.user.username %></strong><%= comment.content %></p>
+      <% if(comment.user) { %>
+        <p><strong><%= comment.user.username %></strong> - <%= comment.content %></p>
+
         <form method="post" action="/restaurants/<%= restaurant.id %>/comments/<%= comment.id %>">
           <input type="hidden" name="_method" value="delete">
           <button type="submit">Delete Comment</button>
         </form>
+
       </div>
+      <% } %>
     <% }) %>
 
 

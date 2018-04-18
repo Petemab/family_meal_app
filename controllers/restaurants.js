@@ -68,6 +68,7 @@ function commentsCreate(req, res) {
 
   Restaurant
     .findById(req.params.id)
+    .populate('user comment.user')
     .exec()
     .then(restaurant => {
       // adding the current user to the comment form data
