@@ -5,7 +5,7 @@
     <h2>Email <%= user.email %></h2>
 
 
-<% if (restaurant.user.id === (locals.currentUser && locals.currentUser.id)) { %>
+<% if(locals.isAuthenticated && user.id === locals.currentUser.id) { %>
     <div class="deleteButton">
       <form action="/users/<%= user.id %>" method="post">
         <input type="hidden" name="_method" value="DELETE">

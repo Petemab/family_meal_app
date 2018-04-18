@@ -43,8 +43,8 @@ router.route('/restaurants/:id/edit')
 router.route('/restaurants/:id/comments')
   .post(restaurants.commentsCreate);
 
-router.route('/restaurants/:restaurantId/comments/:commentId')
-  .delete(restaurants.commentsDelete);  
+router.route('/restaurants/:id/comments/:commentId')
+  .delete(restaurants.commentsDelete);
 
 //////route to  restaurant reveiw/user reviews? (by ID?)
 

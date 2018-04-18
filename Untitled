@@ -1,0 +1,32 @@
+<% if (locals.user.id === restaurant.user.id) { %>
+  <div class="edit">
+    <a href="/restaurants/<%= restaurant._id %>/edit">Edit</a>
+  </div>
+    <div class="deleteButton">
+      <form action="/restaurants/<%= restaurant.id %>" method="post">
+        <input type="hidden" name="_method" value="DELETE">
+        <button class="btn red">Delete Restaurant</button>
+      </form>
+    </div>
+  </div>
+<% } %>
+
+
+
+
+  <h4>Post a comment</h4>
+  <form action="/restaurants/<%= restaurant.id %>/comments" method="post">
+    <input type="text" name="content">
+    <input type="submit">
+  </form>
+
+  <h4>Listing Comments</h4>
+  <% restaurant.comments.forEach(comment => { %>
+    <div>
+      <p><strong><%= comment.user.username %></strong><%= comment.conent %></p>
+      <form action="/restaurants/<%= restaurant.id %>/comments/<%= comment.id %>">
+        <input type="hidden" name="_method" value="delete">
+        <button type="submit">Delete Comment</button>
+      </form>
+    </div>
+  <% }); %>

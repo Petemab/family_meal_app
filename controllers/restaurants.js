@@ -3,7 +3,6 @@ const Restaurant = require('../models/restaurant');
 function restaurantIndex(req, res){
   Restaurant
     .find()
-    // .populate('')
     .exec()
     .then(restaurants => {
       res.render('restaurants/index', {restaurants});
@@ -11,12 +10,13 @@ function restaurantIndex(req, res){
 }
 
 function restaurantShow(req, res){
+  console.log('here in restaurant-show');
   Restaurant
     .findById(req.params.id)
-    .populate('user')
-    .populate('comments.user')
+    .populate('user comments.user')
     .exec()
-    .then(restaurant => res.render('restaurants/show', {restaurant}));
+    .then(restaurant => res.render('restaurants/show', {restaurant}, console.log(restaurant)))
+    .catch(err => console.log(err));
 }
 
 function restaurantNew(req, res){
@@ -64,25 +64,28 @@ function restaurantDelete(req, res){
 
 
 function commentsCreate(req, res) {
+  req.body.user = req.currentUser;
+
   Restaurant
     .findById(req.params.id)
     .exec()
     .then(restaurant => {
       // adding the current user to the comment form data
-      req.body.user = req.currentUser;
 
-      // creating a new comment with the form data.
-      const comment = new Comment(req.body);
+      //
+      // // creating a new comment with the form data.
+      // const comment = new Comment(req.body);
+
 
       // pushing the comment into the array of comments for the photo
-      restaurant.comments.push(comment);
+      restaurant.comments.push(req.body);
 
       // saving the photo
       return  restaurant.save();
     })
     .then(restaurant => {
       // redirecting back to the photos show view
-      res.redirect(`/restaurant/${restaurant._id}`);
+      res.redirect(`/restaurants/${restaurant._id}`);
     })
     .catch(err => console.log(err));
 }
@@ -90,11 +93,11 @@ function commentsCreate(req, res) {
 function commentsDelete(req, res) {
   // finding the photo that the comment must be added to
   Restaurant
-    .findById(req.params.restaurantId)
+    .findById(req.params.id)
     .exec()
     .then(restaurant => {
       // finding comment to delete by it's id
-      const comment = restaurant.comment.id(req.params.commentId);
+      const comment = restaurant.comments.id(req.params.commentId);
       // deleting that comment
       comment.remove();
 
@@ -103,7 +106,7 @@ function commentsDelete(req, res) {
     })
     .then(restaurant => {
       // redirecting back to the photos show view
-      res.redirect(`/restaurant/${restaurant._id}`);
+      res.redirect(`/restaurants/${restaurant._id}`);
     })
     .catch(err => console.log(err));
 }
@@ -117,8 +120,8 @@ module.exports ={
   edit: restaurantEdit,
   update: restaurantUpdate,
   delete: restaurantDelete,
-  createComment: commentsCreate,
-  deleteComment: commentsDelete
+  commentsCreate: commentsCreate,
+  commentsDelete: commentsDelete
 
 
 };

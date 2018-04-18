@@ -36,7 +36,7 @@ function userShow(req, res){
     .findById(req.params.id)
     //populate
     .exec()
-    .then(user => res.render('users/show', {user}));
+    .then(user => res.render('users/show', {user}, console.log(user)));
 }
 
 // can I not add 2 deletes?

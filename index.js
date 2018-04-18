@@ -63,7 +63,6 @@ app.use(methodOverride(function (req, res) {
 
 
 
-app.use(routes);
 
 
 app.use((err, req, res, next) =>{
@@ -77,5 +76,6 @@ app.use((err, req, res, next) =>{
 });
 
 
+app.use(routes);
 
 app.listen(port, () => console.log(`Running on port${port}`));

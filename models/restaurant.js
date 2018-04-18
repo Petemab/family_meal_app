@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 
 const commentSchema = new mongoose.Schema({
   content: { type: String },
-  user: {type: mongoose.Schema.ObjectId, ref: 'User'}
+  user: {type: mongoose.Schema.ObjectId, ref: 'User'},
+  familyFriendlyRating: {type: Number, min: 1, max: 10, default: 5} //might have to change this
 });
 
 
