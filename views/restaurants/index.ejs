@@ -11,8 +11,14 @@
               <div class="card-image">
                 <img src="<%= restaurant.imageURL %>">
               </div>
-              <div class="card-action">
-                <a href="/restaurants/<%= restaurant.id %>" class="white-text">See the reviews</a>
+              <div class="row carddetails">
+               <div class="card-action col s12 m6">
+                 <a href="/restaurants/<%= restaurant.id %>" class="white-text">See the reviews</a>
+               </div>
+               <div class="rating right col s12 m6">
+                 <h6 class="h6card">FAMILY FRIENDLY RATING</h6>
+                 <p class="bigrating"><%= restaurant.familyFriendlyRating %></p>
+               </div>
               </div>
           </div>
         </div>

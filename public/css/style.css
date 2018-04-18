@@ -9,6 +9,21 @@ body {
 main {
   flex: 1 0 auto; }
 
+a {
+  font-family: 'Advent Pro', sans-serif; }
+
+.bigrating {
+  font-size: 40px; }
+
+.carddetails {
+  margin-bottom: 0; }
+
+.h6card {
+  margin-top: 18px; }
+
+.card .card-content p {
+  margin-left: 75px; }
+
 .card .card-image img {
   display: block;
   border-radius: 2px 2px 0 0;
