@@ -2,12 +2,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index"
-  }
-
-}
-
-
-{
+  },
   "dependencies": {
     "bcrypt": "^2.0.0",
     "bluebird": "^3.5.1",
