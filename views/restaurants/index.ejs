@@ -5,10 +5,10 @@
   <div class="row">
     <% restaurants.forEach(restaurant => { %>
       <div class="col s12 m6">
-        <div class="card teal accent-3">
+        <div class="card teal accent-3 z-depth-3">
           <div class="card-content white-text">
             <span class="card-title"> <%= restaurant.name %></span>
-              <div class="card-image">
+              <div class="card-image materialboxed" width="650">
                 <img src="<%= restaurant.imageURL %>">
               </div>
               <div class="row carddetails">

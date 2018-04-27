@@ -23,6 +23,7 @@
     </form>
 
     <% } %>
+
     <h4>Listing Comments</h4>
 
     <% restaurant.comments.forEach(comment => { %>

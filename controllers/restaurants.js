@@ -92,7 +92,7 @@ function commentsCreate(req, res) {
 }
 
 function commentsDelete(req, res) {
-  // finding the photo that the comment must be added to
+  // finding the rest that the comment must be added to
   Restaurant
     .findById(req.params.id)
     .exec()

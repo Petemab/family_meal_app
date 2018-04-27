@@ -16,7 +16,7 @@ function createRoute(req, res){
     .create(req.body)
     .then(() => {
       console.log('am I working here?');
-      return res.redirect('/');
+      return res.redirect('/login');
     })
     // --If the entered fields are not the same as the model then throw an error-
     .catch((err) => {

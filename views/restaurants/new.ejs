@@ -1,4 +1,4 @@
-<h1>This is the new restaurant page</h1>
+<h1>Add a new restaurant and review</h1>
 <%# name: {type: String, required: true},
 imageURL: String,
 address: {type: String, required: true},
@@ -16,7 +16,7 @@ review: String %>
 
 
 
-<form method="POST" action="/restaurants">
+<form method="POST" action="/restaurants" class="formThing">
   <div>
     <label for="name">Name</label>
     <input type="text" name="name" id="name" required>
