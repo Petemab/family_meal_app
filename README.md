@@ -84,11 +84,10 @@ Error Message:
 
 * Perhaps the biggest challenge of this project was getting to grips with the basics of handling a front and back end after just a week of learning.
 
-* I found ejs a bit tricky to work with but more or less got to grips with it after a few days.
+* I found ejs a bit tricky to work with but got to grips with it after a few days.
 
-* I perhaps didn't plan this as well as I could have and therefore got blocked on several occasions when I could have been adding more features.
+* It was tough planning out a work flow and I got blocked on several occasions when I could have been adding more features.
 
-* While Materialize was fun to work with, my styling perhaps left something to be desired, largely due to time restraints.
 
 ---
 
@@ -96,7 +95,7 @@ Error Message:
 
 * I met the brief on time and was able to add things like comments and error messages.
 
-* The app worked quite well and although simple actually served a purpose and gave me something to build on.
+* The app worked well and although simple actually served a purpose and gave me something to build on.
 
 * It was fun to work with a different CSS framework, in this case Materialize and demonstrate I could learn it quickly to a decent level.
 
@@ -110,4 +109,4 @@ Features I would have liked to include:
 
 * Google maps would really bring the app to life.
 
-* I would probably want to restyle completely given the chance.
+* I would want to restyle completely given the chance.
