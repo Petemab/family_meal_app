@@ -26,7 +26,7 @@ app.use(morgan('dev'));
 app.use(expressLayouts);
 
 app.use(session({
-  secret: 'wordsandsecretstuff', //what goes here? Why?
+  secret: 'wordsandsecretstuff', 
   resave: false,
   saveUninitialized: false
 }));

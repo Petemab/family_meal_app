@@ -12,7 +12,7 @@ router.get('/about', (req, res) => res.render('about'));
 router.get('/contact', (req, res) => res.render('contact'));
 
 
-
+// secure routes
 function secureRoute(req, res, next){
   if(!req.session.userId){
     return req.session.regenerate(() =>{
@@ -46,11 +46,7 @@ router.route('/restaurants/:id/comments')
 router.route('/restaurants/:id/comments/:commentId')
   .delete(restaurants.commentsDelete);
 
-//////route to  restaurant reveiw/user reviews? (by ID?)
 
-
-
-/////route to users?
 
 //authentication and users
 
@@ -78,9 +74,6 @@ router.route('/users/:id')
 // end authentication
 
 
-
-
-////route to
 
 
 module.exports = router;
